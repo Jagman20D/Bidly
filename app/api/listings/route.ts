@@ -1,17 +1,17 @@
 import { supabase } from "@/app/lib/supabaseClient";
-import { NextResponse } from "next/server";
 
-export async function POST(req: Request) {
-  const { title, description, price, image_url, user_id } = await req.json();
-
+export async function GET() {
   const { data, error } = await supabase
     .from("listings")
-    .insert([{ title, description, price, image_url, user_id }])
-    .select();
+    .select("*");
 
   if (error) {
-    return NextResponse.json({ error: error.message }, { status: 400 });
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500,
+    });
   }
 
-  return NextResponse.json({ listing: data[0] }, { status: 200 });
+  return new Response(JSON.stringify(data), {
+    status: 200,
+  });
 }
