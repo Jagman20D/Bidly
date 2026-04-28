@@ -1,35 +1,87 @@
 export default function Home() {
   return (
-    <main style={{
-      padding: "40px",
-      fontFamily: "Arial, sans-serif",
-      maxWidth: "800px",
-      margin: "0 auto"
-    }}>
-      <h1 style={{ fontSize: "2.5rem", marginBottom: "10px" }}>
+    <main
+      style={{
+        fontFamily: "Arial, sans-serif",
+        padding: "60px 20px",
+        maxWidth: "900px",
+        margin: "0 auto",
+        textAlign: "center",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "3rem",
+          marginBottom: "20px",
+          fontWeight: "bold",
+        }}
+      >
         Welcome to Bidly
       </h1>
 
-      <p style={{ fontSize: "1.2rem", marginBottom: "30px", color: "#555" }}>
-        A simple marketplace where you can browse, post, and bid on listings.
+      <p
+        style={{
+          fontSize: "1.3rem",
+          color: "#555",
+          marginBottom: "40px",
+        }}
+      >
+        A simple, clean marketplace where you can browse, post, and bid on items.
       </p>
 
-      <section style={{
-        padding: "20px",
-        border: "1px solid #ddd",
-        borderRadius: "10px",
-        background: "#fafafa"
-      }}>
-        <h2 style={{ marginBottom: "10px" }}>Get Started</h2>
-        <ul style={{ lineHeight: "1.8" }}>
-          <li>Browse listings</li>
-          <li>Create your own listing</li>
-          <li>Place bids and win items</li>
-        </ul>
-      </section>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "20px",
+          marginBottom: "50px",
+        }}
+      >
+        <div
+          style={{
+            padding: "20px",
+            borderRadius: "12px",
+            border: "1px solid #ddd",
+            background: "#fafafa",
+          }}
+        >
+          <h2 style={{ marginBottom: "10px" }}>Browse Listings</h2>
+          <p style={{ color: "#666" }}>
+            Explore items posted by the community and find great deals.
+          </p>
+        </div>
 
-      <footer style={{ marginTop: "40px", color: "#888" }}>
-        © {new Date().getFullYear()} Bidly
+        <div
+          style={{
+            padding: "20px",
+            borderRadius: "12px",
+            border: "1px solid #ddd",
+            background: "#fafafa",
+          }}
+        >
+          <h2 style={{ marginBottom: "10px" }}>Create a Listing</h2>
+          <p style={{ color: "#666" }}>
+            Post your own items and let others bid on them.
+          </p>
+        </div>
+
+        <div
+          style={{
+            padding: "20px",
+            borderRadius: "12px",
+            border: "1px solid #ddd",
+            background: "#fafafa",
+          }}
+        >
+          <h2 style={{ marginBottom: "10px" }}>Place Bids</h2>
+          <p style={{ color: "#666" }}>
+            Participate in auctions and win items at great prices.
+          </p>
+        </div>
+      </div>
+
+      <footer style={{ color: "#aaa", marginTop: "40px" }}>
+        © {new Date().getFullYear()} Bidly — Marketplace made simple
       </footer>
     </main>
   );
