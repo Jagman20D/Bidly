@@ -1,18 +1,13 @@
-import { supabase } from "@/lib/supabaseClient";
+import { NextResponse } from "next/server";
+import { supabase } from "../../lib/supabaseClient";
 
 export async function GET() {
-  const { data, error } = await supabase
-    .from("listings")
-    .select("*");
+  const { data, error } = await supabase.from("listings").select("*");
 
   if (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-    });
+    console.error("Supabase error:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  return new Response(JSON.stringify(data), {
-    status: 200,
-  });
+  return NextResponse.json(data);
 }
-
