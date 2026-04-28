@@ -1,4 +1,4 @@
-import { supabase } from "@/app/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 
 export async function GET() {
   const { data, error } = await supabase
@@ -15,3 +15,4 @@ export async function GET() {
     status: 200,
   });
 }
+
