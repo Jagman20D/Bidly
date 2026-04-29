@@ -2,7 +2,7 @@
   "name": "bidly",
   "version": "1.0.0",
   "private": true,
-  "description": "Bidly – a Next.js app connected to Supabase.",
+  "description": "Bidly – a simple Next.js + Supabase app.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
