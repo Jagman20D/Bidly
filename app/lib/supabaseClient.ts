@@ -1,8 +1,14 @@
-import { createBrowserClient } from '@supabase/ssr'
+import { NextResponse } from "next/server";
+import { createClient } from "../../lib/supabaseClient";
 
-export function createClient() {
-  return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+const supabase = createClient();
+
+export async function GET() {
+  const { data, error } = await supabase.from("listings").select("*");
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json(data);
 }
